@@ -1,0 +1,13 @@
+<div>
+    <google-map height="400px"
+                width="750px"
+                [center]="center">
+        <map-marker *ngFor="let markerPosition of markerList; let i = index"
+        #marker = "mapMarker"
+        [position]="markerPosition"
+        [options]="{draggable: false, icon: {url: iconPath }}"
+        (mapClick)="openInfoWindow(marker, i)">  
+        </map-marker>
+        <map-info-window>{{markerText}}</map-info-window>  
+    </google-map>
+</div>
